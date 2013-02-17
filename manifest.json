@@ -8,7 +8,7 @@
     {
       "matches": ["*://*/*"],
       "css": ["in.css"],
-	  "js": ["parse.js"]
+	  "js": ["parse.js", "jquery-1.9.1.js"]
     }
   ],
   

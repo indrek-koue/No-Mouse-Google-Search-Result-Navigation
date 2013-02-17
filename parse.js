@@ -15,7 +15,7 @@ document.onkeydown = function (e) {
         var eles = $("li.g");
         var elementsCount = eles.length;
 		
-		alert(eles.length);
+		//alert(eles.length);
 
         if (e.keyCode == KEY_SPECIAL_ENTER && selectedUrl != "") {
             window.location = selectedUrl;
