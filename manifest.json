@@ -197,10 +197,8 @@
 	  "js": ["core.js", "lib/jquery-1.9.1.js"]
     }
   ],
-  
-  "options_page": "views/options.html",
   "browser_action": {
     "default_icon": "res/icon.png",
-    "default_popup": "views/popup.html"
+    "default_popup": "popup.html"
   }
 }
