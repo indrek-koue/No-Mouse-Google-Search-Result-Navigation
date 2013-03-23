@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "No Mouse Search Navigation",
-  "description": "Navigate Google search results without mouse using keyboard hotkeys and shortcuts",
+  "description": "Navigate Google search results with keyboard hotkeys and shortcuts",
   "version": "1",
 
    "content_scripts": [
