@@ -1,2 +1,3 @@
-No Mouse Search Navigation
+No Mouse Google Search Navigation
+==========================
 Navigate Google search results without taking your hands off the keyboard: using hotkeys and keyboard shortcuts.
