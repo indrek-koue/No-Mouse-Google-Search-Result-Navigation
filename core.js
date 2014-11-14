@@ -7,10 +7,12 @@ var selectedUrl = STRING_EMPTY;
 
 var KEY_ARROW_DOWN = 40;
 var KEY_ARROW_RIGHT = 39;
+var KEY_ARROW_LEFT = 37;
 var KEY_ARROW_UP = 38;
 var KEY_SPECIAL_ENTER = 13;
 
 document.onkeydown = function (e) {
+	$("span#knavm").remove()  // Remove default and buggy google keyboard navigation
 
     if (e.shiftKey) {
     
@@ -24,8 +26,13 @@ document.onkeydown = function (e) {
         	window.location = selectedUrl;
         
         } else if (e.keyCode == KEY_ARROW_RIGHT) {
-        	//TODO:go to next page
-        } else if (e.keyCode == KEY_ARROW_DOWN || e.keyCode == KEY_ARROW_UP) {
+			window.location = $(".navend:last a").attr("href");
+        	//go to next page
+        } else if (e.keyCode == KEY_ARROW_LEFT) {
+			//go to previous page
+			if ($("td.cur").text()!=1) //if we are on the first page, we can't go back
+				window.location = $(".navend:first a").attr("href");
+        }else if (e.keyCode == KEY_ARROW_DOWN || e.keyCode == KEY_ARROW_UP) {
            
         	//turn off highlight for previous item
             eles.eq(pointer).removeClass(highlightCssClass);
