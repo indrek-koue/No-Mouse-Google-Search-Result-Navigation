@@ -9,6 +9,7 @@ var KEY_ARROW_DOWN = 40;
 var KEY_ARROW_RIGHT = 39;
 var KEY_ARROW_UP = 38;
 var KEY_SPECIAL_ENTER = 13;
+var KEY_SPECIAL_SPACE = 32;
 
 document.onkeydown = function (e) {
 
@@ -22,6 +23,11 @@ document.onkeydown = function (e) {
         
         	//shift + enter = go to highlighted
         	window.location = selectedUrl;
+        
+        } else if (e.keyCode == KEY_SPECIAL_SPACE) {
+	
+        	//shift + space = go to highlighted in new tab
+        	window.open(selectedUrl);
         
         } else if (e.keyCode == KEY_ARROW_RIGHT) {
         	//TODO:go to next page
