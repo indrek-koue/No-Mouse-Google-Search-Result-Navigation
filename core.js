@@ -27,7 +27,7 @@ document.onkeydown = function (e) {
             //shift + enter = go to highlighted
             window.location = selectedUrl;
 
-        } else if (e.keyCode == KEY_SPECIAL_SPACE) {
+        } else if (e.keyCode == KEY_SPECIAL_SPACE && selectedUrl != STRING_EMPTY) {
 
             //shift + space = go to highlighted in new tab
             window.open(selectedUrl);
@@ -64,6 +64,6 @@ document.onkeydown = function (e) {
             }
         }
 
-    }//shift
+    } //shift
 
 };
