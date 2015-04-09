@@ -32,12 +32,12 @@ document.onkeydown = function (e) {
             //shift + space = go to highlighted in new tab
             window.open(selectedUrl);
 
-        } else if (e.keyCode == KEY_ARROW_RIGHT) {
+        } else if (e.keyCode == KEY_ARROW_RIGHT && selectedUrl != STRING_EMPTY) {
 
             //go to next page
             window.location = $(".navend:last a").attr("href");
 
-        } else if (e.keyCode == KEY_ARROW_LEFT) {
+        } else if (e.keyCode == KEY_ARROW_LEFT && selectedUrl != STRING_EMPTY) {
 
             //go to previous page
             if ($("td.cur").text()!=1) //if we are on the first page, we can't go back
