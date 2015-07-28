@@ -18,7 +18,7 @@ document.onkeydown = function (e) {
     if (e.shiftKey) {
 
         //find all search results
-        var eles = $("li.g");
+        var eles = $(".g");
         var elementsCount = eles.length;
         var NEW_TAB = event.metaKey
 
