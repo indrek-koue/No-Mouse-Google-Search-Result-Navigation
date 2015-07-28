@@ -10,7 +10,6 @@ var KEY_ARROW_RIGHT = 39;
 var KEY_ARROW_LEFT = 37;
 var KEY_ARROW_UP = 38;
 var KEY_SPECIAL_ENTER = 13;
-var KEY_SPECIAL_SPACE = 32;
 
 document.onkeydown = function (e) {
 
@@ -21,15 +20,16 @@ document.onkeydown = function (e) {
         //find all search results
         var eles = $("li.g");
         var elementsCount = eles.length;
+        var NEW_TAB = event.metaKey
 
-        if (e.keyCode == KEY_SPECIAL_ENTER && selectedUrl != STRING_EMPTY) {
+        if (e.keyCode == KEY_SPECIAL_ENTER && NEW_TAB == false && selectedUrl != STRING_EMPTY) {
 
             //shift + enter = go to highlighted
             window.location = selectedUrl;
 
-        } else if (e.keyCode == KEY_SPECIAL_SPACE && selectedUrl != STRING_EMPTY) {
+        } else if (e.keyCode == KEY_SPECIAL_ENTER && NEW_TAB == true && selectedUrl != STRING_EMPTY) {
 
-            //shift + space = go to highlighted in new tab
+            //ctrl + shift + enter = go to highlighted in new tab
             window.open(selectedUrl);
 
         } else if (e.keyCode == KEY_ARROW_RIGHT && selectedUrl != STRING_EMPTY) {
