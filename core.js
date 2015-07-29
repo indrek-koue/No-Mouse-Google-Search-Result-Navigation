@@ -20,7 +20,13 @@ document.onkeydown = function (e) {
         //find all search results
         var eles = $(".g");
         var elementsCount = eles.length;
-        var NEW_TAB = event.metaKey
+
+        //determine if ctrl key is down (command key on Mac)
+        if (navigator.appVersion.indexOf("Mac") !=- 1) {
+            var NEW_TAB = event.metaKey; //true if OS is Mac and command key is down
+        } else {
+            var NEW_TAB = event.ctrlKey; //true if OS is not Mac and ctrl key is down
+        }
 
         if (e.keyCode == KEY_SPECIAL_ENTER && NEW_TAB == false && selectedUrl != STRING_EMPTY) {
 
