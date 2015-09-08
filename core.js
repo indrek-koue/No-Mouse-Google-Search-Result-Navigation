@@ -10,7 +10,6 @@ var KEY_ARROW_RIGHT = 39;
 var KEY_ARROW_LEFT = 37;
 var KEY_ARROW_UP = 38;
 var KEY_SPECIAL_ENTER = 13;
-var KEY_SPECIAL_SPACE = 32;
 
 document.onkeydown = function (e) {
 
@@ -19,25 +18,32 @@ document.onkeydown = function (e) {
     if (e.shiftKey) {
 
         //find all search results
-        var eles = $("li.g");
+        var eles = $(".g");
         var elementsCount = eles.length;
 
-        if (e.keyCode == KEY_SPECIAL_ENTER && selectedUrl != STRING_EMPTY) {
+        //determine if ctrl key is down (command key on Mac)
+        if (navigator.appVersion.indexOf("Mac") !=- 1) {
+            var NEW_TAB = event.metaKey; //true if OS is Mac and command key is down
+        } else {
+            var NEW_TAB = event.ctrlKey; //true if OS is not Mac and ctrl key is down
+        }
+
+        if (e.keyCode == KEY_SPECIAL_ENTER && NEW_TAB == false && selectedUrl != STRING_EMPTY) {
 
             //shift + enter = go to highlighted
             window.location = selectedUrl;
 
-        } else if (e.keyCode == KEY_SPECIAL_SPACE && selectedUrl != STRING_EMPTY) {
+        } else if (e.keyCode == KEY_SPECIAL_ENTER && NEW_TAB == true && selectedUrl != STRING_EMPTY) {
 
-            //shift + space = go to highlighted in new tab
+            //ctrl + shift + enter = go to highlighted in new tab
             window.open(selectedUrl);
 
-        } else if (e.keyCode == KEY_ARROW_RIGHT) {
+        } else if (e.keyCode == KEY_ARROW_RIGHT && selectedUrl != STRING_EMPTY) {
 
             //go to next page
             window.location = $(".navend:last a").attr("href");
 
-        } else if (e.keyCode == KEY_ARROW_LEFT) {
+        } else if (e.keyCode == KEY_ARROW_LEFT && selectedUrl != STRING_EMPTY) {
 
             //go to previous page
             if ($("td.cur").text()!=1) //if we are on the first page, we can't go back
